@@ -1,3 +1,4 @@
+
 const nameIsValid = (firstName, lastName) => {
   const regNum = /[0-9]/;
   const msg = '';

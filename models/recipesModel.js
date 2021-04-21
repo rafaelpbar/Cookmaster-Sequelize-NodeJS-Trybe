@@ -20,8 +20,7 @@ const getRecipes = async () =>
 
 const findById = async (id) =>
   connection()
-    .then((db) => db.getTable('recipes').select([]).where('id = :id').bind('id', id)
-    .execute())
+    .then((db) => db.getTable('recipes').select([]).where('id = :id').bind('id', id).execute())
     .then((results) => results.fetchAll()[0])
     .then(([idRecipe, userId, user, name, ingredients, instructions]) => ({
       idRecipe,
@@ -63,12 +62,7 @@ const findByName = async (name) =>
 const getRecipeByUserId = async (id) =>
   connection()
     .then((db) =>
-      db
-        .getTable('recipes')
-        .select([])
-        .where('user_id = :user_id')
-        .bind('user_id', id)
-        .execute(),
+      db.getTable('recipes').select([]).where('user_id = :user_id').bind('user_id', id).execute(),
     )
     .then((results) => results.fetchAll()[0])
     .then(([idRecipe, userId, user, name, ingredients, instructions]) => ({
@@ -92,11 +86,29 @@ const addRecipe = async (userId, user, name, ingredients, instructions) =>
       .execute(),
   );
 
+const updateRecipe = async (id, name, ingredients, instructions) =>
+  connection()
+    .then((db) =>
+      db
+        .getTable('recipes')
+        .update()
+        .set('name', name)
+        .set('ingredients', ingredients)
+        .set('instructions', instructions)
+        .where('id = :id')
+        .bind('id', id)
+        .execute(),
+    )
+    .catch((err) => {
+      throw err;
+    });
+
 const deleteRecipe = async (id) =>
-  connection().then((db) =>
-    db.getTable('recipes').delete().where('id = :id').bind('id', id)
-    .execute(),
-  );
+  connection()
+    .then((db) => db.getTable('recipes').delete().where('id = :id').bind('id', id).execute())
+    .catch((err) => {
+      throw err;
+    });
 
 module.exports = {
   getRecipes,
@@ -104,5 +116,6 @@ module.exports = {
   findByName,
   getRecipeByUserId,
   addRecipe,
+  updateRecipe,
   deleteRecipe,
 };
