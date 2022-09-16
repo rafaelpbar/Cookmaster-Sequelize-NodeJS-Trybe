@@ -22,16 +22,16 @@ CREATE TABLE IF NOT EXISTS recipes (
 );
 
 INSERT INTO users (email, password, first_name, last_name)
-VALUES ('bruno.batista@gmail.com', '12345678', 'bruno', 'batista'),
-       ('vanessa.morato@gmail.com', '12345678', 'vanessa', 'morato'),
-       ('carolina.silva@gmail.com', '12345678', 'carolina', 'silva');
+VALUES ('rafael.barbosa@gmail.com', '12345678', 'rafael', 'barbosa'),
+       ('caia.lages@gmail.com', '12345678', 'caia', 'lages'),
+       ('stella.barbosa@gmail.com', '12345678', 'stella', 'barbosa');
 
 INSERT INTO recipes (user_id, user, name, ingredients, instructions)
-VALUES (1, 'bruno batista', 'Receita de Bolo', 'Farinha,ovo,leite', '30 minutos no forno'),
-       (1, 'bruno batista', 'Receita de Cookie', 'Farinha,ovo,leite', '20 minutos no forno'),
-       (1, 'bruno batista', 'Receita de cafe', 'pó de cafe,agua', '10 minutos no fogo'),
-       (1, 'bruno batista', 'Receita de miojo', 'miojo,agua', '3 minutos no fogo'),
-       (1, 'bruno batista', 'Receita de mexidão', 'ovo,preseunto,queijo', 'mistura e frita na frigideira');
+VALUES (1, 'rafael barbosa', 'Receita de Bolo', 'Farinha,ovo,leite', '30 minutos no forno'),
+       (1, 'rafael barbosa', 'Receita de Cookie', 'Farinha,ovo,leite', '20 minutos no forno'),
+       (1, 'rafael barbosa', 'Receita de cafe', 'pó de cafe,agua', '10 minutos no fogo'),
+       (1, 'rafael barbosa', 'Receita de miojo', 'miojo,agua', '3 minutos no fogo'),
+       (1, 'rafael barbosa', 'Receita de mexidão', 'ovo,preseunto,queijo', 'mistura e frita na frigideira');
 
 SELECT * FROM users;
 SELECT * FROM recipes;

@@ -1,5 +1,5 @@
 {
-  "name": "project-cookmaster",
+  "name": "cookmaster",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,16 +10,11 @@
     "start:watch": "nodemon index.js",
     "cypress:open": "cypress open"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/betrybe/project-cookmaster.git"
-  },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/betrybe/project-cookmaster/issues"
   },
-  "homepage": "https://github.com/betrybe/project-cookmaster#readme",
   "dependencies": {
     "@mysql/xdevapi": "^8.0.21",
     "body-parser": "^1.19.0",
